@@ -3,7 +3,7 @@ import Homepage from './component/homepage.js';
 import "./App.css";
 import { useEffect, useState } from 'react';
 import io from "socket.io-client"
-const socket = io.connect("http://localhost:8080");
+const socket = io.connect("https://chess-multiplayer-game1.onrender.com");
 
 function App() {
   const [btn,setbtn] = useState(0);

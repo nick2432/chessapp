@@ -5,23 +5,42 @@
     max-width: 100vw;
     max-height: 100vh;
     background-color: #fff;
+    background-image: url("Screenshot from 2023-04-24 20-19-50.png");  
+    
+    
 }
-.color1n{
-    display: flex;
-    height:100px;
-    width:100px;
-    max-width: 100vw;
-    max-height: 100vh;
-    background-color:rgb(242, 189, 56);
-}
+
 .color2{
     display: flex;
     height:100px;
     width:100px;
     max-width: 100vw;
     max-height: 100vh;
-    background-color: green;
+    background-image: url("Screenshot from 2023-04-23 17-13-28.png");  
+}
+.l{
+    height:100px;
+    width:100px;
+    max-width: 100vw;
+    max-height: 100vh;
   
+}
+.ll{
+    height:100px;
+    width:100px;
+    max-width: 100vw;
+    max-height: 100vh;
+background: rgba(58, 163, 132, 0.36);
+box-shadow: 0 4px 30px rgba(178, 63, 63, 0.1);
+backdrop-filter: blur(0px);
+-webkit-backdrop-filter: blur(0px);
+}
+.red{
+    height:100px;
+    width:100px;
+    max-width: 100vw;
+    max-height: 100vh;
+    background-color: rgb(161, 46, 46);
 }
 .chesbd:hover{
     cursor: grab;
@@ -29,25 +48,35 @@
 .chesbd:active{
     cursor: grabbing;
 }
+
 .color1 .chesbd{
     display: flex;
-    height: 80%;
-    width: 80%; 
-}
-.color1n .chesbd{
-    display: flex;
-    height: 80%;
-    width: 80%; 
+    height: 75%;
+    width: 70%;
+    align-items: center;
+    padding-left: 10%; 
+    padding-top: 10%;
 }
 .color2 .chesbd{
-     display: flex;
-    height: 80%;
-    width: 80%; 
+    display: flex;
+    height: 75%;
+    width: 70%;
+    align-items: center;
+    padding-left: 10%; 
+    padding-top: 10%;
+}
+.color3 .chesbd{
+    display: flex;
+    height: 75%;
+    width: 70%;
+    align-items: center;
+    padding-left: 10%; 
+    padding-top: 10%;
 }
 .hide{
     display: none;
 }
-@media screen and (350px< width <800px){
+@media screen and (350px< width <1300px){
     .color1{
         height: 60px;
         width: 60px;
@@ -56,13 +85,15 @@
         height: 60px;
         width: 60px;
     }
-    .color1n{
+    .ll{
+        height: 60px;
+        width: 60px;
+    }
+    .l{
         height: 60px;
         width: 60px;
     }
 } 
-
-
 @media screen and (350px< height <800px){
     .color1{
         height: 60px;
@@ -72,9 +103,13 @@
         height: 60px;
         width: 60px;
     }
-    .color1n{
+    .ll{
         height: 60px;
         width: 60px;
+    }
+    .l{
+        height: 60px;
+        width: 60px; 
     }
 } 
 @media screen and (height<490px){
@@ -86,7 +121,11 @@
         height: 40px;
         width: 40px;
     }
-    .color1n{
+    .ll{
+        height: 40px;
+        width: 40px;
+    }
+    .l{
         height: 40px;
         width: 40px;
     }
@@ -100,8 +139,13 @@
         height: 40px;
         width: 40px;
     }
-    .color1n{
+    .ll{
+        height: 40px;
+        width: 40px;
+    }
+    .l{
         height: 40px;
         width: 40px;
     }
 } 
+

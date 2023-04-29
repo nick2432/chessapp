@@ -1,20 +1,21 @@
-.chessbd{
+#chessbd{
     height: 100%;
-    width: 100%;
+  
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:rgb(64, 113, 103);
+    background-color:rgb(149, 160, 114);
+    border-radius: 20px;
+    border: 13px solid  #5c3209;
+    opacity: 85%;
 }
 #column{
     display: none;
 }
 #tabl1{
-    display: 'none';
     transform: rotate(180deg);
 }
 #tabl0{
-    display: 'none';
     transform: rotate(0deg);
 }
 #row0{
@@ -31,4 +32,58 @@
     background-color:rgb(64, 113, 103);
     transform: rotate(180deg);
 }
-
+#lose{
+    display: none;
+    color:brown;
+    font-size: 2rem;
+    
+}
+#win{
+    display: none;
+    color:aqua;
+    font-size: 2rem;  
+}
+#timer{
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    left: 280px;
+    width: 150px;
+}
+#timer2{
+    display: none;
+    position: absolute;
+    width: 150px;
+    right: 280px;
+    top: 40px; 
+}
+@media screen and (350px< width <1300px){
+   #timer{
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+    width: 130px; 
+   }
+} 
+@media screen and (350px< width <1300px){
+  #timer2{
+    position: absolute;
+    width: 130px;
+    right: 100px;
+    top: 20px; 
+  }
+ } 
+ @media screen and (width<490px){
+    #timer{
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        width: 90px; 
+    }
+    #timer2{
+        position: absolute;
+        width: 90px;
+        right: 10px;
+        top: 20px; 
+      }
+} 

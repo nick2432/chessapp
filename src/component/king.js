@@ -23,40 +23,108 @@ export const qmove=(se,idx,ps)=> {
         var kx=1;
         for(var i=ps[idx].x+1;i<=8;i++){
             const se2 = ps.findIndex((Px) => Px.key===`l${i}${ps[idx].y}`);
+            const se1 = ps.findIndex((Px) => Px.key===`d${i}${ps[idx].y}`);
             if(se2!=-1){
                 if(ps[se2].t==='lq' || ps[se2].t==='lr'){
                     kx=0;
                 }
+                break;
+            }
+            if(se1!=-1){
                 break;
             }
         }
         for(var i=ps[idx].x-1;i>=1;i--){
             const se2 = ps.findIndex((Px) => Px.key===`l${i}${ps[idx].y}`);
+            const se1 = ps.findIndex((Px) => Px.key===`d${i}${ps[idx].y}`);
             if(se2!=-1){
                 if(ps[se2].t==='lq' || ps[se2].t==='lr'){
                     kx=0;
                 }
+                break;
+            }
+            if(se1!=-1){
                 break;
             }
         }
         for(var i=ps[idx].y-1;i>=1;i--){
             const se2 = ps.findIndex((Px) => Px.key===`l${ps[idx].x}${i}`);
+            const se1 = ps.findIndex((Px) => Px.key===`d${ps[idx].x}${i}`);
             if(se2!=-1){
                 if(ps[se2].t==='lq' || ps[se2].t==='lr'){
                     kx=0;
                 }
+                break;
+            }
+            if(se1!=-1){
                 break;
             }
         }
         for(var i=ps[idx].y+1;i<=8;i++){
             const se2 = ps.findIndex((Px) => Px.key===`l${ps[idx].x}${i}`);
+            const se1 = ps.findIndex((Px) => Px.key===`d${ps[idx].x}${i}`);
             if(se2!=-1){
                 if(ps[se2].t==='lq' || ps[se2].t==='lr'){
                     kx=0;
                 }
                 break;
             }
+            if(se1!=-1){
+                break;
+            }
         }
+        for(var i=ps[idx].x+1,j=ps[idx].y+1;i<=8||j<=8;i++,j++){
+            const se1 = ps.findIndex((Px) => Px.key===`d${i}${j}`);
+            const se2 = ps.findIndex((Px) => Px.key===`l${i}${j}`);
+                if(se2!=-1){
+                  if(ps[se2].t==='lq' || ps[se2].t==='lb'){
+                   kx=0;
+                  }
+                  break;
+                }
+                if(se1!=-1){
+                    break;
+                }
+        }
+        for(var i=ps[idx].x+1,j=ps[idx].y-1;i<=8||j>0;i++,j--){
+            const se1 = ps.findIndex((Px) => Px.key===`d${i}${j}`);
+            const se2 = ps.findIndex((Px) => Px.key===`l${i}${j}`);
+            if(se2!=-1){
+                if(ps[se2].t==='lq' || ps[se2].t==='lb'){
+                 kx=0;
+                }
+                break;
+              }
+              if(se1!=-1){
+                  break;
+              }
+          }
+          for(var i=ps[idx].x-1,j=ps[idx].y+1;i>0||j<=8;i--,j++){
+            const se1 = ps.findIndex((Px) => Px.key===`d${i}${j}`);
+            const se2 = ps.findIndex((Px) => Px.key===`l${i}${j}`);
+            if(se2!=-1){
+                if(ps[se2].t==='lq' || ps[se2].t==='lb'){
+                 kx=0;
+                }
+                break;
+              }
+              if(se1!=-1){
+                  break;
+              }
+          }
+          for(var i=ps[idx].x-1,j=ps[idx].y-1;i>0||j>0;i--,j--){
+            const se1 = ps.findIndex((Px) => Px.key===`d${i}${j}`);
+            const se2 = ps.findIndex((Px) => Px.key===`l${i}${j}`);
+            if(se2!=-1){
+                if(ps[se2].t==='lq' || ps[se2].t==='lb'){
+                 kx=0;
+                }
+                break;
+              }
+              if(se1!=-1){
+                  break;
+              }
+          }
         var x1=ps[idx].x;
         var y1=ps[idx].y;
         const se1 = ps.findIndex((Px) => Px.t===`lk`);
@@ -86,7 +154,6 @@ export const qmove=(se,idx,ps)=> {
             if( ps[sep].t==='lp')
             {kx=0;}
         }
-
         if((ps[se].x+1===ps[idx].x || ps[se].y-1 === ps[idx].y || (ps[se].x-1===ps[idx].x || ps[se].y+1===ps[idx].y)) && kx===1){return 1;}
     }
 }
@@ -95,40 +162,108 @@ export const lqmove=(se,idx,ps)=> {
         var kx=1;
         for(var i=ps[idx].x+1;i<=8;i++){
             const se2 = ps.findIndex((Px) => Px.key===`d${i}${ps[idx].y}`);
+            const se1 = ps.findIndex((Px) => Px.key===`l${i}${ps[idx].y}`);
             if(se2!=-1){
                 if(ps[se2].t==='dq' || ps[se2].t==='dr'){
                     kx=0;
                 }
+                break;
+            }
+            if(se1!=-1){
                 break;
             }
         }
         for(var i=ps[idx].x-1;i>=1;i--){
             const se2 = ps.findIndex((Px) => Px.key===`d${i}${ps[idx].y}`);
+            const se1 = ps.findIndex((Px) => Px.key===`l${i}${ps[idx].y}`);
             if(se2!=-1){
                 if(ps[se2].t==='dq' || ps[se2].t==='dr'){
                     kx=0;
                 }
+                break;
+            }
+            if(se1!=-1){
                 break;
             }
         }
         for(var i=ps[idx].y-1;i>=1;i--){
             const se2 = ps.findIndex((Px) => Px.key===`d${ps[idx].x}${i}`);
+            const se1 = ps.findIndex((Px) => Px.key===`l${ps[idx].x}${i}`);
             if(se2!=-1){
                 if(ps[se2].t==='dq' || ps[se2].t==='dr'){
                     kx=0;
                 }
+                break;
+            }
+            if(se1!=-1){
                 break;
             }
         }
         for(var i=ps[idx].y+1;i<=8;i++){
             const se2 = ps.findIndex((Px) => Px.key===`d${ps[idx].x}${i}`);
+            const se1 = ps.findIndex((Px) => Px.key===`l${ps[idx].x}${i}`);
             if(se2!=-1){
                 if(ps[se2].t==='dq' || ps[se2].t==='dr'){
                     kx=0;
                 }
                 break;
             }
+            if(se1!=-1){
+                break;
+            }
         }
+        for(var i=ps[idx].x+1,j=ps[idx].y+1;i<=8||j<=8;i++,j++){
+            const se2 = ps.findIndex((Px) => Px.key===`d${i}${j}`);
+            const se1 = ps.findIndex((Px) => Px.key===`l${i}${j}`);
+                if(se2!=-1){
+                  if(ps[se2].t==='dq' || ps[se2].t==='db'){
+                   kx=0;
+                  }
+                  break;
+                }
+                if(se1!=-1){
+                    break;
+                }
+        }
+        for(var i=ps[idx].x+1,j=ps[idx].y-1;i<=8||j>0;i++,j--){
+            const se2 = ps.findIndex((Px) => Px.key===`d${i}${j}`);
+            const se1 = ps.findIndex((Px) => Px.key===`l${i}${j}`);
+            if(se2!=-1){
+                if(ps[se2].t==='dq' || ps[se2].t==='db'){
+                 kx=0;
+                }
+                break;
+              }
+              if(se1!=-1){
+                  break;
+              }
+          }
+          for(var i=ps[idx].x-1,j=ps[idx].y+1;i>0||j<=8;i--,j++){
+            const se2 = ps.findIndex((Px) => Px.key===`d${i}${j}`);
+            const se1 = ps.findIndex((Px) => Px.key===`l${i}${j}`);
+            if(se2!=-1){
+                if(ps[se2].t==='dq' || ps[se2].t==='db'){
+                 kx=0;
+                }
+                break;
+              }
+              if(se1!=-1){
+                  break;
+              }
+          }
+          for(var i=ps[idx].x-1,j=ps[idx].y-1;i>0||j>0;i--,j--){
+            const se2 = ps.findIndex((Px) => Px.key===`d${i}${j}`);
+            const se1 = ps.findIndex((Px) => Px.key===`l${i}${j}`);
+            if(se2!=-1){
+                if(ps[se2].t==='dq' || ps[se2].t==='db'){
+                 kx=0;
+                }
+                break;
+              }
+              if(se1!=-1){
+                  break;
+              }
+          }
         var x1=ps[idx].x;
         var y1=ps[idx].y;
         const se1 = ps.findIndex((Px) => Px.t===`dk`);

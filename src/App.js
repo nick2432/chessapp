@@ -3,12 +3,15 @@ import Homepage from './component/homepage.js';
 import "./App.css";
 import { useEffect, useState } from 'react';
 import io from "socket.io-client"
-const socket = io.connect("http://alert-thankful-opportunity.glitch.me/");
+const socket = io.connect("http://localhost:8080");
 
 function App() {
   const [btn,setbtn] = useState(0);
   const [val,setval] = useState(0);
-  
+  const [joined,setjoined] = useState(0);
+  const [black,setblack] = useState(-1);
+ 
+  const [a,seta] = useState(0);
   if(btn===1){
     const x=document.getElementById("t");
     x.style.display="flex";
@@ -17,10 +20,21 @@ function App() {
       x1.remove();
     }
   }
+  useEffect(()=>{
+    console.log(black)
+    if(black===1 || black===0){
+    const x=document.getElementById("t");
+    x.style.display="flex";
+    const x1=document.getElementById("o");
+    if(x1!=null){
+      x1.remove();
+    }
+  }
+  },[black])
   return(
-    <div id='App'>
-        <div id='o'><Homepage Change={setbtn} socket={socket}  val={val} btn={btn} setval={setval}/></div>
-        <div id='t'><Board val={val} setval={setval}socket={socket}/></div>
+    <div id={`App${a}`}>
+        <div id='o'><Homepage Change={setbtn} joined={joined} setjoined={setjoined} socket={socket}  val={val} btn={btn} setval={setval}/></div>
+        <div id='t'><Board  seta={seta} val={val} black={black} setblack={setblack} setval={setval}socket={socket}/></div>
     </div>
   );
 }

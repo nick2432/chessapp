@@ -1,3 +1,5 @@
+import { ischeck } from "./check";
+import { ischeckw } from "./checkw";
 function checkkn(x1,x2,y1,y2){
     if(
         (x1+2===x2 && y1+1===y2) 
@@ -18,11 +20,12 @@ function checkkn(x1,x2,y1,y2){
     ){return 1;}
     else return 0;
 }
-export const dpmove=(se,idx,ps)=> {
+export const dpmove=(se,idx,ps,kx,ky)=> {
         if(ps[se].t==='dp'){
             const x1=ps[se].x+1;
             const y1=ps[se].y+1;
             const y2=ps[se].y-1;
+            if(ischeck(ps,kx,ky,idx,se)===1){return 0;}
             if(ps[idx].c==='l'){
                 if(ps[idx].x===x1 && ps[idx].y===y1){return 1;}
                 if(ps[idx].x===x1 && ps[idx].y===y2){return 1;}
@@ -36,11 +39,12 @@ export const dpmove=(se,idx,ps)=> {
             else{return 0;}
         }
 }
-export const lpmove=(se,idx,ps)=> {
+export const lpmove=(se,idx,ps,kx,ky)=> {
             if(ps[se].t==='lp'){
                 const x1=ps[se].x-1;
                 const y1=ps[se].y+1;
                 const y2=ps[se].y-1;
+                if(ischeckw(ps,kx,ky,idx,se)===1){return 0;}
                 if(ps[idx].c==='d'){
                     if(ps[idx].x===x1 && ps[idx].y===y1){return 1;}
                     if(ps[idx].x===x1 && ps[idx].y===y2){return 1;}
@@ -52,12 +56,14 @@ export const lpmove=(se,idx,ps)=> {
                 else{return 0;}
             }
 }
-export const kmove=(se,idx,ps)=> {
+export const kmove=(se,idx,ps,kx,ky)=> {
     if(ps[se].t==='dk' || ps[se].t==='lk'){
         var x1=ps[se].x;
         var x2=ps[idx].x;
         var x3=ps[se].y;
         var x4=ps[idx].y;
+        if(ps[se].c==='d' && ischeck(ps,kx,ky,idx,se)===1){return 0;}
+        if(ps[se].c==='l' && ischeckw(ps,kx,ky,idx,se)===1){return 0;}
         if(checkkn(x1,x2,x3,x4)===1){
             return 1;
         }
@@ -65,7 +71,7 @@ export const kmove=(se,idx,ps)=> {
     }
     else return 0;
 }
-export const rmove=(se,idx,ps)=> {
+export const rmove=(se,idx,ps,kx,ky)=> {
     if(ps[se].t==='dr' || ps[se].t==='lr' || ps[se].t==='dq' || ps[se].t==='lq'){
         console.log("jbhkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
         var f=9;
@@ -138,13 +144,15 @@ export const rmove=(se,idx,ps)=> {
                     break;
                 }
         }
+        if(ps[se].c==='d' && ischeck(ps,kx,ky,idx,se)===1){return 0;}
+        if(ps[se].c==='l' && ischeckw(ps,kx,ky,idx,se)===1){return 0;}
         if(((ps[idx].x===(ps[se].x) || ps[idx].y===ps[se].y)) && ps[idx].x<f && ps[idx].y>l && ps[idx].y<r && ps[idx].x>b){
             return 1;
         }
     }
     else{return 0;}
 }
-export const bmove=(se,idx,ps)=> {
+export const bmove=(se,idx,ps,kx,ky)=> {
     if(ps[se].t==='db' || ps[se].t==='lb'|| ps[se].t==='dq' || ps[se].t==='lq'){
         var f1=9;
         var f2=9;
@@ -260,6 +268,8 @@ export const bmove=(se,idx,ps)=> {
         }
         var x=Math.abs(ps[idx].x-ps[se].x);
         var y=Math.abs(ps[idx].y-ps[se].y);
+        if(ps[se].c==='d' && ischeck(ps,kx,ky,idx,se)===1){return 0;}
+        if(ps[se].c==='l' && ischeckw(ps,kx,ky,idx,se)===1){return 0;}
         if(x===y){
             console.log(fx1,fx2,"fuck me");
             if(ps[idx].x>=f1 && ps[idx].y>=f2){

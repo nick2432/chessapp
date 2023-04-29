@@ -1,49 +1,106 @@
 .home{
- 
-    background-color:rgb(64, 113, 103);
-    margin-left: 0%;
-   margin-top: 0%;
+   
+    background-color:rgb(149, 160, 114);
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+    border-radius: 20px;
+    border: 10px solid  black;
    margin-bottom: 5%;
+   opacity: 85%;
+}
+
+#z{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+#clr{
+  display: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  
+}
+.code{
+  color:rgb(255, 212, 104);
 }
 #text{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-left: 15%;
+    text-align: center;
+    margin-right: 18%;
+    font-weight: bold;
+    font-size: 25px;
 }
 #inputBox{
     display: block;
     margin: 25px;
-    padding: 7px;
-    width: 300px;
-    border: 1px solid skyblue;
-}
-#appButton{
-    margin: 25px;
+    font-size: 18px;
     padding: 10px;
-    width: 150px;
-    background-color: skyblue;
-    border: 1px solid;
-    cursor: pointer;
-  }
+    color: rgb(13, 14, 15);
+    border-radius: 10px;
+    width: 300px;
+    background-color: #b3aeaa;
+    border: none;
+    outline: none;
+}
+
   #apptn{
     margin: 25px;
-    padding: 10px;
-    width: 150px;
+    padding: 15px;
+    font-size: 18px;
+    text-transform: capitalize;
+    background-image: linear-gradient(to right,#03045e,#90e0ef);
     background-color: skyblue;
-    border: 1px solid;
+    font-weight: bold;
+    border-radius: 10px;
+    outline: none;
+    border: none;
     cursor: pointer;
   }
   #apptnb{
-    margin: 25px;
-    padding: 10px;
-    width: 150px;
-    background-color: skyblue;
-    border: 1px solid;
+    margin: 40px;
+    padding: 20px;
+    width: 200px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
+    color:lightblue;
+    background-color: black;
+    border-radius: 10px;
+    outline: none;
+    border: none;
     cursor: pointer;
   }
   #apptnw{
+    margin: 40px;
+    padding: 20px;
+    width: 200px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: darkblue;
+    background-color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+  #appButton {
     margin: 25px;
-    padding: 10px;
-    width: 150px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
+    background-image: linear-gradient(to right,#03045e,#90e0ef);
     background-color: skyblue;
-    border: 1px solid;
+    border-radius: 10px;
+    outline: none;
+    border: none;
     cursor: pointer;
   }

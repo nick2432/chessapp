@@ -1,7 +1,5 @@
 import "./home.css"
 import React, { useEffect, useState } from "react";
-import nik from "../images/chess desktop wallpaper 3djpeg.jpeg"
-
 export default function Homepage(props) {
   const socket=props.socket;
   const [code1,setcode1]=useState("")
@@ -16,29 +14,46 @@ export default function Homepage(props) {
     }
     return result;
   }
-
+  useEffect(()=>{
+    socket.on("not",(data)=>{
+      alert(data)
+    });
+    socket.on("yes",(data)=>{
+      props.Change(1);
+    });
+  },[socket])
   const goto=()=>{
-      socket.emit("code",code1)
-        props.Change(1);
+    if(props.joined===0){
+      socket.emit("code1",code1)
+    }
+    else{
+      props.Change(1);
+    }
   }
   const createcode=()=>{
-    console.log('kjfak');
     var code=makeid(6);
     const x=document.getElementById("appButton");
-    x.replaceWith(`Room code is ${code}`);
+    x.remove();
     const x1=document.getElementById("text");
     x1.remove();
     const x2 =document.getElementById("inputBox");
     x2.remove();
-    var xx=Math.round(Math.random());
-    console.log(xx,"dafffffffff");
-    props.setval(xx);
+    const x4=document.getElementById("z");
+    x4.style.display="flex";
+    const x5=document.getElementById("clr");
+    x5.style.display="flex";
+    const x6=document.getElementById("apptn");
+    x6.remove();
     setcode1(code);
+    props.setjoined(1);
+    socket.emit("code",code)
   };
   return (
     <div className='home'>
+      <div id="z">waiting for opponent.......</div>
+      <div id="clr">Room code is---{<span className="code">{`${code1}`}</span>}</div>
       <button id='appButton' onClick={createcode} type='button'>Create game</button>
-      <div id='text'>{"or join game"}</div>
+      <div id='text'>{"Or join game"}</div>
       <input id='inputBox'type='text' placeholder='Enter code to join game' value={code1}onChange={(e)=>setcode1(e.target.value)}/>
       <button id='apptn' onClick={goto} type='button'>join game</button>
     </div>
